@@ -20,7 +20,7 @@
 
 ## Docker compose
 
-Bringing up the stack: `sudo docker-compose up`  
+Bringing up the stack: `sudo docker-compose up -d`  
 
 As soon as the containers are ready, navigate to http://localhost:5601 and login with the following credentials  
 **elastic : password**  
