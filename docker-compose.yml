@@ -9,7 +9,7 @@ services:
     environment:
       - xpack.security.enabled=true
       - bootstrap.memory_lock=false
-      - ELASTIC_PASSWORD=password
+      - ELASTIC_PASSWORD=password     #change this to your own password
       - discovery.type=single-node
       # Multi node setup
       # - node.name=es-01
@@ -29,7 +29,7 @@ services:
   suricata:
     image: malinkinsa/suricata:latest
     environment:
-      - CONFIG=-i eno2
+      - CONFIG=-i eno2    ##Change this to your monitor interface
     privileged: true
     volumes:
       - ./logs:/var/log/suricata
@@ -49,7 +49,7 @@ services:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
       # allow the suricata filebeat module to be customized, and share with filebeat
       - ./filebeat/modules/suricata/suricata.yml:/usr/share/filebeat/modules.d/suricata.yml
-      - ./suricata/logs/:/var/log/suricata/
+      - ./logs/:/var/log/suricata/
 
     restart: on-failure
 
